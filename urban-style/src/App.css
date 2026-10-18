@@ -67,3 +67,7 @@ body {
 .nav-icono {
   font-size: 1.8rem;
 }
+
+.site-navbar .nav-link.active {
+  color: var(--accent-purple-hover);
+}

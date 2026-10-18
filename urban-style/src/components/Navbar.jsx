@@ -1,5 +1,6 @@
 /** Navegación principal. El menú móvil se controla con React (useState). */
 import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import Logo from './Logo'
 
 const enlaces = [
@@ -12,13 +13,14 @@ const enlaces = [
 
 export default function Navbar() {
   const [abierto, setAbierto] = useState(false)
+  const cerrar = () => setAbierto(false)
 
   return (
     <nav className="navbar navbar-expand-lg site-navbar" data-bs-theme="dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/" onClick={cerrar}>
           <Logo />
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -34,23 +36,35 @@ export default function Navbar() {
           <ul className="navbar-nav me-auto">
             {enlaces.map(({ texto, ruta }) => (
               <li className="nav-item" key={ruta}>
-                <a className="nav-link" href={ruta}>
+                <NavLink className="nav-link" to={ruta} end={ruta === '/'} onClick={cerrar}>
                   <strong>{texto}</strong>
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
 
           <ul className="navbar-nav flex-row gap-3">
             <li className="nav-item">
-              <a className="nav-link" href="/login" aria-label="Iniciar sesión" title="Iniciar sesión">
+              <NavLink
+                className="nav-link"
+                to="/login"
+                aria-label="Iniciar sesión"
+                title="Iniciar sesión"
+                onClick={cerrar}
+              >
                 <i className="bi bi-door-open nav-icono" aria-hidden="true"></i>
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/carrito" aria-label="Carrito" title="Carrito">
+              <NavLink
+                className="nav-link"
+                to="/carrito"
+                aria-label="Carrito"
+                title="Carrito"
+                onClick={cerrar}
+              >
                 <i className="bi bi-cart nav-icono" aria-hidden="true"></i>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
