@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "nombre": "Polerón Oversize Street",
+    "precio": 29990,
+    "categoria": "Hombre",
+    "stock": 8,
+    "imagen": "/img/poleron1.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Poleron Adidas",
+    "precio": 45990,
+    "categoria": "Hombre",
+    "stock": 3,
+    "imagen": "/img/polerondidas.jpg"
+  }
+]
