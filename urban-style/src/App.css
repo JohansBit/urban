@@ -49,3 +49,21 @@ body {
 .btn-purple:hover {
   opacity: 0.9;
 }
+
+/* ===== Navbar ===== */
+.site-navbar {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--accent-purple);
+}
+
+.site-navbar .nav-link {
+  color: var(--text-primary);
+}
+
+.site-navbar .nav-link:hover {
+  color: var(--accent-purple);
+}
+
+.nav-icono {
+  font-size: 1.8rem;
+}
