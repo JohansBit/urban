@@ -338,7 +338,7 @@ npm install bootstrap
 | Francisco Bustos |
 | Johans Sepúlveda |
 
-Docente: *(completar)*
+Docente: Gerardo Marchant
 
 ## 16. Roadmap (fuera del alcance de esta entrega)
 
