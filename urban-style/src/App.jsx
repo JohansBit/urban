@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
+import Hero from './components/Hero';
+import Nosotros from './components/Nosotros';
+import NosotrosDetalle from './components/NosotrosDetalle';
+import Blogs from './components/Blogs';
+import Contacto from './components/Contacto';
 import Catalogo from './components/Catalogo';
-import Auth from './components/Auth';
-import { useCarrito } from './hooks/useCarrito';
 import AdminPanel from './components/AdminPanel';
+import Auth from './components/Auth';
+import Carrito from './components/Carrito';
+import { useCarrito } from './hooks/useCarrito';
+import productosBase from './data/productos.json';
 import './App.css';
 
 export default function App() {
+  const navigate = useNavigate();
+
   const { 
     mostrarCarrito, 
     setMostrarCarrito, 
@@ -15,16 +25,33 @@ export default function App() {
   } = useCarrito();
 
   const [usuario, setUsuario] = useState(() => {
-    const sesion = localStorage.getItem('sesionActiva');
-    return sesion ? JSON.parse(sesion) : null;
+    try {
+      const sesion = localStorage.getItem('sesionActiva');
+      return sesion ? JSON.parse(sesion) : null;
+    } catch {
+      return null;
+    }
   });
+
   const [mostrarAuth, setMostrarAuth] = useState(false);
-  const [vistaActual, setVistaActual] = useState('tienda');
+
+  const [productos, setProductos] = useState(() => {
+    try {
+      const guardados = localStorage.getItem('urban_productos');
+      if (guardados) {
+        const parsed = JSON.parse(guardados);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    return Array.isArray(productosBase) ? productosBase : [];
+  });
 
   const handleCerrarSesion = () => {
     localStorage.removeItem('sesionActiva');
     setUsuario(null);
-    setVistaActual('tienda')
+    navigate('/');
   };
 
   return (
@@ -35,20 +62,49 @@ export default function App() {
         onAbrirAuth={() => setMostrarAuth(true)}
         usuarioActivo={usuario}
         onCerrarSesion={handleCerrarSesion}
-        onNavegar={setVistaActual}
       />
 
-      <main className="flex-grow-1">
-        {vistaActual === 'admin' ? (
-          <AdminPanel 
-          productos ={productos}
-          onActualizarProductos={setProductos}
-          onVolverTienda={() => setVistaActual('tienda')}/>
-        ): (
-        <Catalogo onAgregarAlCarrito={agregarProducto} />
-        )}
+      <main className="flex-grow-1 pt-3">
+        <Routes>
+          
+          <Route path="/" element={
+            <>
+              <Hero />
+              <Nosotros />
+              <div className="container py-4">
+                <h2 className="text-center text-warning fw-bold mb-4">COLECCIÓN DESTACADA</h2>
+                <Catalogo onAgregarAlCarrito={agregarProducto} productos={productos} />
+              </div>
+            </>
+          } />
+
+         
+          <Route path="/productos" element={
+            <div className="container py-4">
+              <h2 className="text-center text-warning fw-bold mb-4">CATÁLOGO COMPLETO</h2>
+              <Catalogo onAgregarAlCarrito={agregarProducto} productos={productos} />
+            </div>
+          } />
+
+          <Route path="/nosotros" element={<NosotrosDetalle />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/carrito" element={<Carrito />} />
+          
+          
+          <Route path="/admin" element={
+            <AdminPanel 
+              productos={productos}
+              onActualizarProductos={setProductos}
+              onVolverTienda={() => navigate('/')}
+            />
+          } />
+
+          <Route path="*" element={<h1 className="container py-5 text-center">Página no encontrada</h1>} />
+        </Routes>
       </main>
 
+     
       <Auth
         visible={mostrarAuth} 
         onClose={() => setMostrarAuth(false)} 
@@ -56,43 +112,4 @@ export default function App() {
       />
     </div>
   );
-}
-
-
-import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Home from './components/Home'
-import Nosotros from './components/Nosotros'
-import Productos from './components/Productos'
-import Blogs from './components/Blogs'
-import Contacto from './components/Contacto'
-import Carrito from './components/Carrito'
-import Login from './components/Login'
-import Hero from './components/Hero'
-import NosotrosDetalle from './components/NosotrosDetalle'
-
-export default function App() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Hero />
-              <Nosotros />
-            </>
-          } />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/nosotros" element={<NosotrosDetalle />} />
-          <Route path="/productos" element={<Productos />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/carrito" element={<Carrito />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="*" element={<h1 className="container py-5">Página no encontrada</h1>} />
-        </Routes>
-      </main>
-    </>
-  )
 }

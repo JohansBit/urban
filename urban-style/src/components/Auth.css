@@ -1,3 +1,9 @@
+:root {
+  --bg-card: #141414;
+  --border-gold: #d4af37;
+  --accent-gold: #d4af37;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -17,20 +23,18 @@
 .modal-card {
   width: 100%;
   max-width: 420px;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-gold);
+  background-color: #141414 !important;
+  border: 1px solid #d4af37;
   border-radius: 8px;
   padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
   animation: scaleUp 0.2s ease-out;
 }
 
-/* Si es registro, le damos un poco más de ancho para los pares de inputs */
 .modal-card-registro {
   max-width: 540px;
 }
 
-/* Scroll interno suave por si la pantalla es baja (notebook o móvil) */
 .modal-form-scroll {
   max-height: 75vh;
   overflow-y: auto;
@@ -38,7 +42,7 @@
 }
 
 .modal-title {
-  color: var(--accent-gold);
+  color: #d4af37;
   font-weight: 800;
   letter-spacing: 0.5px;
   font-size: 1.35rem;
@@ -46,8 +50,8 @@
 }
 
 .modal-input {
-  background-color: #111111;
-  color: #ffffff;
+  background-color: #111111 !important;
+  color: #ffffff !important;
   border: 1px solid #333333;
   padding: 0.55rem 0.75rem;
   font-size: 0.88rem;
@@ -57,21 +61,21 @@
 }
 
 .modal-input:disabled {
-  background-color: #1c1c1c;
-  color: #666666;
+  background-color: #1c1c1c !important;
+  color: #666666 !important;
   cursor: not-allowed;
 }
 
 .modal-input:focus {
-  background-color: #111111;
-  color: #ffffff;
-  border-color: var(--accent-gold);
+  background-color: #111111 !important;
+  color: #ffffff !important;
+  border-color: #d4af37;
   box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
   outline: none;
 }
 
 .btn-auth-submit {
-  background-color: var(--accent-gold);
+  background-color: #d4af37;
   color: #000000;
   font-weight: 700;
   border: none;
@@ -91,7 +95,7 @@
 .btn-toggle-auth {
   background: none;
   border: none;
-  color: var(--accent-gold);
+  color: #d4af37;
   font-weight: 700;
   cursor: pointer;
   padding: 0;

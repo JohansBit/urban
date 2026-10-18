@@ -1,7 +1,7 @@
 .hero-banner {
   position: relative;
   overflow: hidden;
-  height: clamp(260px, 45vh, 480px);
+  height: clamp(340px, 55vh, 560px);
 }
 
 .hero-banner-img {
@@ -10,7 +10,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: top center;
   opacity: 0;
   transition: opacity 1s ease;
 }
@@ -30,7 +30,6 @@
   gap: 4px;
 }
 
-/* El punto se ve de 12px, pero el área táctil es de 24px */
 .hero-banner-punto {
   width: 24px;
   height: 24px;
@@ -43,7 +42,7 @@
 }
 
 .hero-banner-punto.activo {
-  background-color: #AB47BC;
+  background-color: #ffc107;
 }
 
 .hero-contenido {
