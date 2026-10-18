@@ -8,6 +8,7 @@ import Contacto from './components/Contacto'
 import Carrito from './components/Carrito'
 import Login from './components/Login'
 import Hero from './components/Hero'
+import NosotrosDetalle from './components/NosotrosDetalle'
 
 export default function App() {
   return (
@@ -18,23 +19,16 @@ export default function App() {
           <Route path="/" element={
             <>
               <Hero />
-              <section className="container my-4">
-                <div className="card p-3">
-                  <p><strong>UrbanStyle es tu tienda de moda urbana, ropa y calzado juvenil...</strong></p>
-                  <p><strong>Trabajamos con proveedores y marcas...</strong></p>
-                  <p><strong>Queremos que encuentres modelos exclusivos...</strong></p>
-                  <p>🔥 Nuevas tendencias, grandes marcas y estilos que van contigo.</p>
-                  <p><strong>UrbanStyle — viste diferente, marca tu estilo.</strong></p>
-                </div>
-              </section>
+              <Nosotros />
             </>
           } />
           <Route path="/blogs" element={<Blogs />} />
-          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/nosotros" element={<NosotrosDetalle />} />
           <Route path="/productos" element={<Productos />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="*" element={<h1 className="container py-5">Página no encontrada</h1>} />
         </Routes>
       </main>
