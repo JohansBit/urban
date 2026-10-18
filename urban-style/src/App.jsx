@@ -1,122 +1,98 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Catalogo from './components/Catalogo';
+import Auth from './components/Auth';
+import { useCarrito } from './hooks/useCarrito';
+import AdminPanel from './components/AdminPanel';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const { 
+    mostrarCarrito, 
+    setMostrarCarrito, 
+    agregarProducto, 
+    totalUnidades 
+  } = useCarrito();
+
+  const [usuario, setUsuario] = useState(() => {
+    const sesion = localStorage.getItem('sesionActiva');
+    return sesion ? JSON.parse(sesion) : null;
+  });
+  const [mostrarAuth, setMostrarAuth] = useState(false);
+  const [vistaActual, setVistaActual] = useState('tienda');
+
+  const handleCerrarSesion = () => {
+    localStorage.removeItem('sesionActiva');
+    setUsuario(null);
+    setVistaActual('tienda')
+  };
 
   return (
+    <div className="bg-dark text-white min-vh-100 d-flex flex-column">
+      <Header 
+        cantidadCarrito={totalUnidades} 
+        onAbrirCarrito={() => setMostrarCarrito(true)}
+        onAbrirAuth={() => setMostrarAuth(true)}
+        usuarioActivo={usuario}
+        onCerrarSesion={handleCerrarSesion}
+        onNavegar={setVistaActual}
+      />
+
+      <main className="flex-grow-1">
+        {vistaActual === 'admin' ? (
+          <AdminPanel 
+          productos ={productos}
+          onActualizarProductos={setProductos}
+          onVolverTienda={() => setVistaActual('tienda')}/>
+        ): (
+        <Catalogo onAgregarAlCarrito={agregarProducto} />
+        )}
+      </main>
+
+      <Auth
+        visible={mostrarAuth} 
+        onClose={() => setMostrarAuth(false)} 
+        onLoginExitoso={(usr) => setUsuario(usr)} 
+      />
+    </div>
+  );
+}
+
+
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import Nosotros from './components/Nosotros'
+import Productos from './components/Productos'
+import Blogs from './components/Blogs'
+import Contacto from './components/Contacto'
+import Carrito from './components/Carrito'
+import Login from './components/Login'
+import Hero from './components/Hero'
+import NosotrosDetalle from './components/NosotrosDetalle'
+
+export default function App() {
+  return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <Nosotros />
+            </>
+          } />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/nosotros" element={<NosotrosDetalle />} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="*" element={<h1 className="container py-5">Página no encontrada</h1>} />
+        </Routes>
+      </main>
     </>
   )
 }
-
-export default App
