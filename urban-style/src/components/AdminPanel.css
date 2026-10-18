@@ -1,0 +1,268 @@
+.admin-container {
+  padding: 2.5rem 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 85vh;
+}
+
+.admin-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .admin-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-profile-card {
+  background-color: #141414;
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 90px;
+}
+
+.admin-avatar-lg {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 1.2rem auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, #2a2a2a 0%, #111111 100%);
+  border: 2px solid #d4af37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  font-size: 3rem;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+}
+
+.admin-user-title {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.admin-user-email {
+  color: #888888;
+  font-size: 0.88rem;
+  word-break: break-all;
+  margin-bottom: 1rem;
+}
+
+.admin-profile-divider {
+  border-top: 1px solid #2a2a2a;
+  margin: 1.2rem 0;
+}
+
+.admin-profile-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-size: 0.88rem;
+}
+
+.admin-header {
+  border-bottom: 1px solid #333333;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.admin-title {
+  color: #d4af37 !important;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-tab-btn {
+  background: #1a1a1a;
+  border: 1px solid #444444;
+  color: #cccccc;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-tab-btn:hover {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-color: #666666;
+}
+
+.admin-tab-btn.active {
+  background-color: #d4af37;
+  border-color: #d4af37;
+  color: #000000;
+  font-weight: 700;
+}
+
+.admin-card {
+  background-color: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.admin-card .modal-input {
+  background-color: #0d0d0d;
+  color: #ffffff;
+  border: 1px solid #333333;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.admin-card .modal-input:focus {
+  border-color: #d4af37;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25);
+}
+
+.admin-table {
+  width: 100%;
+  color: #eeeeee;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  border-bottom: 2px solid #333333;
+  padding: 1rem 0.75rem;
+  text-align: left;
+  color: #d4af37;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.admin-table td {
+  border-bottom: 1px solid #222222;
+  padding: 0.85rem 0.75rem;
+  vertical-align: middle;
+  font-size: 0.9rem;
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+.admin-table tr:hover td {
+  background-color: #1a1a1a !important;
+}
+
+.admin-thumb {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #333333;
+}
+
+.stock-counter-group {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background-color: #0d0d0d;
+  overflow: hidden;
+}
+
+.stock-btn {
+  background: transparent;
+  border: none;
+  color: #d4af37;
+  padding: 0.2rem 0.6rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.stock-btn:hover {
+  background-color: #222;
+}
+
+.stock-display {
+  min-width: 38px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+.sku-badge {
+  font-family: monospace;
+  background-color: #222;
+  color: #bbb;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  border: 1px solid #333;
+}
+
+.admin-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1070;
+}
+
+.admin-modal-card {
+  width: 100%;
+  max-width: 550px;
+  background-color: #141414;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  padding: 1.8rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.badge-rol {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-block;
+  letter-spacing: 0.5px;
+}
+
+.badge-admin { 
+  background-color: rgba(123, 31, 162, 0.2); 
+  border: 1px solid #ba68c8; 
+  color: #e1bee7; 
+}
+
+.badge-vendedor { 
+  background-color: rgba(2, 136, 209, 0.2); 
+  border: 1px solid #29b6f6; 
+  color: #b3e5fc; 
+}
+
+.badge-cliente { 
+  background-color: rgba(46, 125, 50, 0.2); 
+  border: 1px solid #66bb6a; 
+  color: #c8e6c9; 
+}
