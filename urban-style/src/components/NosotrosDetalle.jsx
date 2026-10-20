@@ -82,7 +82,7 @@ export default function NosotrosDetalle() {
             {s.titulo} <span>{s.acento}</span>
           </h2>
 
-          {s.texto && <p className="nos-texto my-4">{s.texto}</p>}
+          {s.texto && <p className="nos-texto my-3">{s.texto}</p>}
 
           {s.items && (
             <ul className="nos-items">

@@ -4,10 +4,12 @@
 }
 
 .nos-slide {
-  min-height: 520px;
+  height: calc(100vh - 190px);
+  min-height: 380px;
+  max-height: 560px;
   display: flex;
   align-items: center;
-  padding: 70px 0;
+  padding: 24px 0 40px;
   background-size: cover;
   background-position: center;
   animation: nosFade 0.6s ease;
@@ -39,13 +41,13 @@
 
 .nos-titulo span {
   display: block;
-  color: #a855f7;
+  color: var(--accent-purple-hover);
 }
 
 .nos-texto {
   max-width: 560px;
   padding-left: 16px;
-  border-left: 4px solid #a855f7;
+  border-left: 4px solid var(--accent-purple-hover);
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.7;
@@ -58,7 +60,7 @@
   flex-wrap: wrap;
   gap: 10px;
   padding: 0;
-  margin: 24px 0 0;
+  margin: 16px 0 0;
   list-style: none;
 }
 
@@ -67,7 +69,7 @@
   font-weight: 600;
   color: #fff;
   background-color: rgba(168, 85, 247, 0.18);
-  border: 1px solid #a855f7;
+  border: 1px solid var(--accent-purple-hover);
   border-radius: 999px;
 }
 
@@ -78,8 +80,8 @@
   font-size: 1.2rem;
   font-style: italic;
   font-weight: 700;
-  color: #a855f7;
-  border-bottom: 3px solid #a855f7;
+  color: var(--accent-purple-hover);
+  border-bottom: 3px solid var(--accent-purple-hover);
 }
 
 .nos-flecha {
@@ -94,13 +96,13 @@
   justify-content: center;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.55);
-  border: 1px solid #a855f7;
+  border: 1px solid var(--accent-purple-hover);
   border-radius: 50%;
   transition: background-color 0.2s ease;
 }
 
 .nos-flecha:hover {
-  background-color: #a855f7;
+  background-color: var(--accent-purple-hover);
 }
 
 .nos-flecha.izq { left: 16px; }
@@ -126,7 +128,7 @@
 }
 
 .nos-punto.activo {
-  background-color: #a855f7;
+  background-color: var(--accent-purple-hover);
   transform: scale(1.3);
 }
 
