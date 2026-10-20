@@ -1,5 +1,5 @@
 .footer-urban {
-  background-color: #0a0a0a;
-  border-top: 2px solid #ffc107;
-  color: #ffffff;
+  background-color: var(--bg-footer);
+  border-top: 2px solid var(--accent-gold);
+  color: var(--text-primary);
 }
