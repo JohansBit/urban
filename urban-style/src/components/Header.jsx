@@ -102,21 +102,20 @@ export default function Header({
                                 )}
                             </li>
                             <li className="nav-item">
-                                <button
-                                    type="button"
-                                    onClick={onAbrirCarrito}
-                                    className="cart-btn-link position-relative bg-transparent border-0 text-white"
-                                    aria-label="Carrito"
-                                    title="Carrito de Compras"
-                                >
-                                    <i className="bi bi-cart fs-2"></i>
-                                    {cantidadCarrito > 0 && (
-                                        <span className={`badge-cart ${animando ? 'badge-cart-animate' : ''}`}>
-                                            {cantidadCarrito}
-                                        </span>
-                                    )}
-                                </button>
-                            </li>
+    <Link
+        to="/carrito"
+        className="cart-btn-link position-relative bg-transparent border-0 text-white"
+        aria-label="Carrito"
+        title="Carrito de Compras"
+    >
+        <i className="bi bi-cart fs-2"></i>
+        {cantidadCarrito > 0 && (
+            <span className={`badge-cart ${animando ? 'badge-cart-animate' : ''}`}>
+                {cantidadCarrito}
+            </span>
+        )}
+    </Link>
+</li>
                         </ul>
                     </div>
                 </div>

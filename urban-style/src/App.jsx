@@ -12,7 +12,11 @@ import Auth from './components/Auth';
 import Carrito from './components/Carrito';
 import { useCarrito } from './hooks/useCarrito';
 import productosBase from './data/productos.json';
+import Footer from './components/Footer';
+import BlogTallas from './components/BlogTallas';
+import BlogCulturaPop from './components/BlogCulturaPop';
 import './App.css';
+
 
 export default function App() {
   const navigate = useNavigate();
@@ -70,11 +74,11 @@ export default function App() {
           <Route path="/" element={
             <>
               <Hero />
-              <Nosotros />
               <div className="container py-4">
                 <h2 className="text-center text-warning fw-bold mb-4">COLECCIÓN DESTACADA</h2>
                 <Catalogo onAgregarAlCarrito={agregarProducto} productos={productos} />
               </div>
+              <Nosotros />
             </>
           } />
 
@@ -88,6 +92,8 @@ export default function App() {
 
           <Route path="/nosotros" element={<NosotrosDetalle />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/tallas" element={<BlogTallas />} />
+          <Route path="/blogs/cultura-pop" element={<BlogCulturaPop />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/carrito" element={<Carrito />} />
           
@@ -103,7 +109,8 @@ export default function App() {
           <Route path="*" element={<h1 className="container py-5 text-center">Página no encontrada</h1>} />
         </Routes>
       </main>
-
+      
+      <Footer />
      
       <Auth
         visible={mostrarAuth} 
