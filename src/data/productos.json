@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "nombre": "Polerón Adidas",
+    "precio": 39990,
+    "categoria": "poleras-polerones",
+    "genero": "hombre",
+    "descripcion": "Polerón urbano cómodo de alta calidad.",
+    "stock": 8,
+    "imagen": "/img/polerondidas.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Polera Crop",
+    "precio": 24990,
+    "categoria": "poleras-polerones",
+    "genero": "mujer",
+    "descripcion": "Polera estilo crop de algodón orgánico.",
+    "stock": 5,
+    "imagen": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 11,
+    "nombre": "Polerón Niño",
+    "precio": 29990,
+    "categoria": "poleras-polerones",
+    "genero": "niño",
+    "descripcion": "Polerón urbano resistente para niños.",
+    "stock": 4,
+    "imagen": "/img/poleronniño.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Pantalón Cargo",
+    "precio": 45990,
+    "categoria": "pantalones",
+    "genero": "hombre",
+    "descripcion": "Pantalón cargo con múltiples bolsillos.",
+    "stock": 3,
+    "imagen": "/img/cargo.jpg"
+  },
+  {
+    "id": 30,
+    "nombre": "Zapatillas Air Max 90",
+    "precio": 95990,
+    "categoria": "zapatillas",
+    "genero": "mujer",
+    "descripcion": "Sneakers urbanas con plantilla amortiguada.",
+    "stock": 6,
+    "imagen": "/img/airmax.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Jockey Rojo Jordan",
+    "precio": 45000,
+    "categoria": "accesorios",
+    "genero": "hombre",
+    "descripcion": "Jockey bordado en relieve con cierre ajustable.",
+    "stock": 10,
+    "imagen": "/img/jockey.jpg"
+  },
+  {
+    "id": 41,
+    "nombre": "Gorro Jordan",
+    "precio": 12990,
+    "categoria": "accesorios",
+    "genero": "niño",
+    "descripcion": "Gorro suave infantil.",
+    "stock": 7,
+    "imagen": "/img/jordan.jpg"
+  }
+]

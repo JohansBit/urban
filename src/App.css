@@ -1,0 +1,73 @@
+:root {
+  /* Colores principales */
+  --bg-primary: #121212;
+  --bg-surface: #1E1E1E;
+  --text-primary: #F5F5F5;
+  --text-secondary: #808080;
+
+  /* Colores de acento */
+  --accent-purple: #8E24AA;
+  --accent-gold: #D4AF37;
+  --accent-gold-hover: #F1C40F;
+
+  /* Estados */
+  --color-error: #FF5252;
+  --color-success: #4CAF50;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+/* Tarjetas */
+.card {
+  background-color: var(--bg-surface);
+  border-radius: 8px;
+  padding: 16px;
+  color: var(--text-primary);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* Botones */
+.btn-gold {
+  background-color: var(--accent-gold);
+  color: var(--bg-primary);
+  font-weight: bold;
+}
+.btn-gold:hover {
+  background-color: var(--accent-gold-hover);
+}
+
+.btn-purple {
+  background-color: var(--accent-purple);
+  color: var(--text-primary);
+}
+.btn-purple:hover {
+  opacity: 0.9;
+}
+
+/* ===== Navbar ===== */
+.site-navbar {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--accent-purple);
+}
+
+.site-navbar .nav-link {
+  color: var(--text-primary);
+}
+
+.site-navbar .nav-link:hover {
+  color: var(--accent-purple);
+}
+
+.nav-icono {
+  font-size: 1.8rem;
+}
+
+.site-navbar .nav-link.active {
+  color: var(--accent-purple-hover);
+}
