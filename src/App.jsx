@@ -17,14 +17,17 @@ import BlogTallas from './components/BlogTallas';
 import BlogCulturaPop from './components/BlogCulturaPop';
 import './App.css';
 
-
 export default function App() {
   const navigate = useNavigate();
 
+  // Desestructuramos todo el estado y funciones desde useCarrito
   const { 
+    carrito,
     mostrarCarrito, 
     setMostrarCarrito, 
     agregarProducto, 
+    actualizarCantidad,
+    eliminarProducto,
     totalUnidades 
   } = useCarrito();
 
@@ -70,7 +73,6 @@ export default function App() {
 
       <main className="flex-grow-1 pt-3">
         <Routes>
-          
           <Route path="/" element={
             <>
               <Hero />
@@ -82,7 +84,6 @@ export default function App() {
             </>
           } />
 
-         
           <Route path="/productos" element={
             <div className="container py-4">
               <h2 className="text-center text-warning fw-bold mb-4">CATÁLOGO COMPLETO</h2>
@@ -95,8 +96,16 @@ export default function App() {
           <Route path="/blogs/tallas" element={<BlogTallas />} />
           <Route path="/blogs/cultura-pop" element={<BlogCulturaPop />} />
           <Route path="/contacto" element={<Contacto />} />
-          <Route path="/carrito" element={<Carrito />} />
-          
+
+          {/* Se pasan las props necesarias al componente Carrito */}
+          <Route path="/carrito" element={
+            <Carrito 
+              items={carrito} 
+              onActualizarCantidad={actualizarCantidad}
+              onEliminar={eliminarProducto}
+              onProcesarPago={() => alert('¡Procesando pedido!')}
+            />
+          } />
           
           <Route path="/admin" element={
             <AdminPanel 
