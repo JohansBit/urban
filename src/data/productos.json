@@ -1,3 +1,4 @@
+
 [
   {
     "id": 1,
@@ -68,5 +69,185 @@
     "descripcion": "Gorro suave infantil.",
     "stock": 7,
     "imagen": "/img/jordan.jpg"
+  },
+  {
+    "id": 50,
+    "nombre": "Zapatillas Urban Classic",
+    "precio": 59990,
+    "categoria": "zapatillas",
+    "genero": "hombre",
+    "descripcion": "Zapatillas urbanas ideales para el uso diario.",
+    "stock": 9,
+    "imagen": "/img/ZapatillasUrbanClassic.jpg"
+  },
+  {
+    "id": 51,
+    "nombre": "Zapatillas Retro Runner",
+    "precio": 69990,
+    "categoria": "zapatillas",
+    "genero": "mujer",
+    "descripcion": "Diseño retro con comodidad y estilo moderno.",
+    "stock": 6,
+    "imagen": "/img/ZapatillasRetroRunner.webp"
+  },
+  {
+    "id": 52,
+    "nombre": "Zapatillas Street Kids",
+    "precio": 39990,
+    "categoria": "zapatillas",
+    "genero": "niño",
+    "descripcion": "Calzado urbano cómodo y resistente para niños.",
+    "stock": 8,
+    "imagen": "/img/ZapatillasStreetKids.jpg"
+  },
+  {
+    "id": 53,
+    "nombre": "Zapatillas High Street",
+    "precio": 84990,
+    "categoria": "zapatillas",
+    "genero": "hombre",
+    "descripcion": "Zapatillas de caña alta con diseño streetwear.",
+    "stock": 5,
+    "imagen": "/img/ZapatillasHighStreet.png"
+  },
+  {
+    "id": 54,
+    "nombre": "Zapatillas Platform",
+    "precio": 74990,
+    "categoria": "zapatillas",
+    "genero": "mujer",
+    "descripcion": "Zapatillas con plataforma y diseño juvenil.",
+    "stock": 7,
+    "imagen": "/img/ZapatillasPlatform.jpg"
+  },
+  {
+    "id": 55,
+    "nombre": "Polera Oversize",
+    "precio": 19990,
+    "categoria": "poleras-polerones",
+    "genero": "hombre",
+    "descripcion": "Polera oversize de estilo urbano y corte relajado.",
+    "stock": 12,
+    "imagen": "/img/PoleraOversize.webp"
+  },
+  {
+    "id": 56,
+    "nombre": "Polera Streetwear",
+    "precio": 22990,
+    "categoria": "poleras-polerones",
+    "genero": "mujer",
+    "descripcion": "Polera juvenil con diseño moderno y versátil.",
+    "stock": 10,
+    "imagen": "/img/PoleraStreetwear.jpg"
+  },
+  {
+    "id": 57,
+    "nombre": "Polerón Oversize Negro",
+    "precio": 44990,
+    "categoria": "poleras-polerones",
+    "genero": "hombre",
+    "descripcion": "Polerón oversize con capucha y estilo urbano.",
+    "stock": 6,
+    "imagen": "/img/PolerónOversizeNegro.webp"
+  },
+  {
+    "id": 58,
+    "nombre": "Polerón Crop",
+    "precio": 37990,
+    "categoria": "poleras-polerones",
+    "genero": "mujer",
+    "descripcion": "Polerón corto de estilo juvenil y moderno.",
+    "stock": 5,
+    "imagen": "/img/PolerónCrop.jpg"
+  },
+  {
+    "id": 59,
+    "nombre": "Pantalón Jogger",
+    "precio": 34990,
+    "categoria": "pantalones",
+    "genero": "hombre",
+    "descripcion": "Pantalón jogger cómodo para outfits casuales.",
+    "stock": 8,
+    "imagen": "/img/PantalónJogger.webp" 
+  },
+  {
+    "id": 60,
+    "nombre": "Pantalón Wide Leg",
+    "precio": 42990,
+    "categoria": "pantalones",
+    "genero": "mujer",
+    "descripcion": "Pantalón de pierna ancha con estilo urbano.",
+    "stock": 7,
+    "imagen":"/img/PantalónWideLeg.jpg"
+  },
+  {
+    "id": 61,
+    "nombre": "Pantalón Cargo Kids",
+    "precio": 27990,
+    "categoria": "pantalones",
+    "genero": "niño",
+    "descripcion": "Pantalón cargo infantil con bolsillos laterales.",
+    "stock": 5,
+    "imagen": "/img/PantalónCargoKids.jpg"
+  },
+  {
+    "id": 62,
+    "nombre": "Pantalón Baggy",
+    "precio": 39990,
+    "categoria": "pantalones",
+    "genero": "hombre",
+    "descripcion": "Pantalón holgado inspirado en la moda streetwear.",
+    "stock": 6,
+    "imagen": "/img/PantalónBaggy.jpg"
+  },
+  {
+    "id": 63,
+    "nombre": "Mochila Urban",
+    "precio": 29990,
+    "categoria": "accesorios",
+    "genero": "hombre",
+    "descripcion": "Mochila urbana espaciosa para uso diario.",
+    "stock": 9,
+    "imagen": "/img/MochilaUrban.webp"
+  },
+  {
+    "id": 64,
+    "nombre": "Banano Street",
+    "precio": 15990,
+    "categoria": "accesorios",
+    "genero": "mujer",
+    "descripcion": "Banano compacto para complementar outfits urbanos.",
+    "stock": 11,
+    "imagen": "/img/BananoStreet.avif"
+  },
+  {
+    "id": 65,
+    "nombre": "Gorro Beanie",
+    "precio": 12990,
+    "categoria": "accesorios",
+    "genero": "hombre",
+    "descripcion": "Gorro tejido ideal para un look streetwear.",
+    "stock": 10,
+    "imagen": "/img/GorroBeanie.webp"
+  },
+  {
+    "id": 66,
+    "nombre": "Lentes Urbanos",
+    "precio": 17990,
+    "categoria": "accesorios",
+    "genero": "mujer",
+    "descripcion": "Lentes de sol con diseño moderno y juvenil.",
+    "stock": 8,
+    "imagen": "/img/LentesUrbanos.jpg"
+  },
+  {
+    "id": 67,
+    "nombre": "Calcetines Deportivos",
+    "precio": 9990,
+    "categoria": "accesorios",
+    "genero": "niño",
+    "descripcion": "Pack de calcetines cómodos para uso diario.",
+    "stock": 15,
+    "imagen": "/img/CalcetinesDeportivos.jpg"
   }
 ]
