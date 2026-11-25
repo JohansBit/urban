@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -11,7 +11,6 @@ import AdminPanel from './components/AdminPanel';
 import Auth from './components/Auth';
 import Carrito from './components/Carrito';
 import { useCarrito } from './hooks/useCarrito';
-import productosBase from './data/productos.json';
 import Footer from './components/Footer';
 import BlogTallas from './components/BlogTallas';
 import BlogCulturaPop from './components/BlogCulturaPop';
@@ -42,18 +41,17 @@ export default function App() {
 
   const [mostrarAuth, setMostrarAuth] = useState(false);
 
-  const [productos, setProductos] = useState(() => {
-    try {
-      const guardados = localStorage.getItem('urban_productos');
-      if (guardados) {
-        const parsed = JSON.parse(guardados);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-      }
-    } catch (e) {
-      console.error(e);
-    }
-    return Array.isArray(productosBase) ? productosBase : [];
-  });
+    const [productos, setProductos] = useState([]);
+
+      useEffect(() => {
+        fetch('/api/productos')
+          .then((res) => {
+            if (!res.ok) throw new Error('Error al cargar productos: ' + res.status);
+            return res.json();
+          })
+          .then((data) => setProductos(data))
+          .catch((err) => console.error(err));
+      }, []);
 
   const handleCerrarSesion = () => {
     localStorage.removeItem('sesionActiva');
