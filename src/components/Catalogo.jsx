@@ -1,7 +1,6 @@
 /** Renderiza el catálogo por categorías, con filtro de género, usando el componente Producto. */
 import { useState } from 'react';
-import productos from '../data/productos.json';
-// Importar el JSON entrega datos locales; aquí no se hace una llamada HTTP.
+
 import Producto from './Producto';
 import './Catalogo.css';
 
@@ -22,8 +21,8 @@ const GENEROS = [
   { label: 'Niños', value: 'niño' },
 ];
 
-// Los productos salen directo de productos.json; por props solo llega la función del carrito.
-export default function Catalogo({ onAgregarAlCarrito }) {
+// Los productos llegan por props desde App.jsx, que los obtiene de la API (/api/productos).
+export default function Catalogo({ productos = [], onAgregarAlCarrito }) {
   // Un estado por sección: filtrar zapatillas no cambia las otras secciones.
   // El setter provoca un nuevo render con las tarjetas filtradas.
   const [filtros, setFiltros] = useState({
