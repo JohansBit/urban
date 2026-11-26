@@ -1,0 +1,74 @@
+.producto-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #18181c;
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.producto-imagen-contenedor {
+  width: 100%;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #1E1E1E;
+}
+
+.producto-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+.producto-cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1rem;
+}
+.producto-genero {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #d4af37;
+}
+.producto-nombre {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f8f9fa;
+}
+.producto-descripcion,
+.producto-stock {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: #adb5bd;
+}
+.producto-precio {
+  margin: auto 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #d4af37;
+}
+.producto-boton {
+  width: 100%;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 6px;
+  background: #d4af37;
+  color: #000;
+  font-weight: 700;
+}
+.producto-boton:hover:not(:disabled) {
+  background: #e6c35a;
+}
+.producto-boton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

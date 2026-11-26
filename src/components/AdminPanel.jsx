@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import productosBase from '../data/productos.json';
 import AdminSide from './AdminSide';
 import GestionProductos from './GestionProductos';
 import GestionUsuarios from './GestionUsuarios';
@@ -34,7 +33,10 @@ const USUARIOS_DEMO = [
   }
 ];
 
-export default function AdminPanel({ onVolverTienda }) {
+const API = '/api/productos';
+
+export default function AdminPanel({ productos = [], onActualizarProductos, onVolverTienda }) {
+
   const [tabActiva, setTabActiva] = useState('productos');
 
   const [usuarioActual] = useState(() => {
@@ -44,17 +46,6 @@ export default function AdminPanel({ onVolverTienda }) {
     } catch {
       return null;
     }
-  });
-
-  const [productos, setProductos] = useState(() => {
-    try {
-      const guardados = localStorage.getItem('urban_productos');
-      if (guardados) {
-        const parsed = JSON.parse(guardados);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-      }
-    } catch (e) { console.error(e); }
-    return Array.isArray(productosBase) ? productosBase : [];
   });
 
   const [usuarios, setUsuarios] = useState(() => {
@@ -74,10 +65,42 @@ export default function AdminPanel({ onVolverTienda }) {
     }
   }, []);
 
-  const actualizarProductos = (nuevos) => {
-    setProductos(nuevos);
-    localStorage.setItem('urban_productos', JSON.stringify(nuevos));
-  };
+  const llamarApi = async (url, opciones) => {
+  const res = await fetch(url, opciones);
+  if (!res.ok) throw new Error(`Error ${res.status} en ${url}`);
+};
+
+const actualizarProductos = async (nuevos) => {
+  try {
+    const headers = { 'Content-Type': 'application/json' };
+    const idsNuevos = new Set(nuevos.map((p) => p.id));
+    const idsActuales = new Set(productos.map((p) => p.id));
+
+    const eliminados = productos.filter((p) => !idsNuevos.has(p.id));
+    const agregados = nuevos.filter((p) => !idsActuales.has(p.id));
+    const editados = nuevos.filter((p) => {
+      const antes = productos.find((a) => a.id === p.id);
+      return antes && JSON.stringify(antes) !== JSON.stringify(p);
+    });
+
+    for (const p of eliminados) {
+      await llamarApi(`${API}/${p.id}`, { method: 'DELETE' });
+    }
+    for (const p of agregados) {
+      const { id, ...datos } = p; // el id lo asigna el servidor
+      await llamarApi(API, { method: 'POST', headers, body: JSON.stringify(datos) });
+    }
+    for (const p of editados) {
+      await llamarApi(`${API}/${p.id}`, { method: 'PUT', headers, body: JSON.stringify(p) });
+    }
+
+    const res = await fetch(API);
+    onActualizarProductos(await res.json());
+  } catch (e) {
+    console.error(e);
+    alert('No se pudo guardar en el servidor. Revisa que el backend esté encendido.');
+  }
+};
 
   const actualizarUsuarios = (nuevos) => {
     setUsuarios(nuevos);
@@ -191,3 +214,4 @@ export default function AdminPanel({ onVolverTienda }) {
     </section>
   );
 }
+
