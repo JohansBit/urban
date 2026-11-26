@@ -72,24 +72,37 @@ export default function AuthModal({ visible, onClose, onLoginExitoso }) {
     setComuna(''); 
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
     const usuariosGuardados = JSON.parse(localStorage.getItem('urban_usuarios') || '[]');
 
     if (esLogin) {
+      // 1. Intentar autenticación JWT contra el backend Spring Boot
+      try {
+        const response = await fetch('http://localhost:8080/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          // data contiene: { token, nombre, email, rol: "ADMIN" | "CLIENTE" }
+          localStorage.setItem('sesionActiva', JSON.stringify(data));
+          onLoginExitoso(data);
+          onClose();
+          return;
+        }
+      } catch (err) {
+        console.warn('No se pudo conectar al backend para login JWT, usando respaldo local.', err);
+      }
+
+      // 2. Respaldo para usuarios registrados localmente en el navegador
       const usuario = usuariosGuardados.find(
         (u) => u.email.toLowerCase() === email.toLowerCase() && u.password === password
       );
-
-      if (!usuario && email === 'admin@urban.cl' && password === 'admin123') {
-        const adminUser = { nombre: 'Admin', email, rol: 'Administrador' };
-        localStorage.setItem('sesionActiva', JSON.stringify(adminUser));
-        onLoginExitoso(adminUser);
-        onClose();
-        return;
-      }
 
       if (!usuario) {
         setError('Correo o contraseña incorrectos.');

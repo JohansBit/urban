@@ -92,9 +92,9 @@ export default function App() {
           } />
 
           <Route path="/nosotros" element={<NosotrosDetalle />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blogs/tallas" element={<BlogTallas />} />
-          <Route path="/blogs/cultura-pop" element={<BlogCulturaPop />} />
+          <Route path="/blogs" element={<Blogs usuarioActivo={usuario} />} />
+          <Route path="/blogs/tallas" element={<BlogTallas usuarioActivo={usuario} />} />
+          <Route path="/blogs/cultura-pop" element={<BlogCulturaPop usuarioActivo={usuario} />} />
           <Route path="/contacto" element={<Contacto />} />
 
           {/* Se pasan las props necesarias al componente Carrito */}
